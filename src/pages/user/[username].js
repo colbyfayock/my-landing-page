@@ -19,6 +19,14 @@ export default function User({ user, ogImageUrl }) {
       <Head>
         <title>{ user.name } - GitHub Profiler</title>
         <meta name="description" content={`GitHub profile for ${ user.name }`} />
+        <meta property="og:title" content={`${ user.name } - GitHub Profiler`} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta property="og:image:width" content="2024" />
+        <meta property="og:image:height" content="1012" />
+        <meta property="twitter:title" content={`${ user.name } - GitHub Profiler`} />
+        <meta property="twitter:image" content={ogImageUrl} />
+        <meta property="twitter:card" content="summary_large_image" />
       </Head>
 
       <Container>
