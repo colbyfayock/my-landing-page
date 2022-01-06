@@ -80,6 +80,87 @@ export async function getServerSideProps({ params }) {
       {
         fetch_format: 'auto',
         quality: 'auto'
+      },
+      {
+        overlay: {
+          url: user.avatar_url
+        }
+      },
+      {
+        flags: 'layer_apply',
+        width: 250,
+        height: 250,
+        gravity: 'north_west',
+        x: 150,
+        y: 95,
+        radius: 250
+      },
+      {
+        color: '#4D57F6',
+        crop: 'fit',
+        width: 432,
+        overlay: {
+          font_family: 'Source Sans Pro',
+          font_size: 60,
+          font_weight: 'bold',
+          text: user.name
+        },
+      },
+      {
+        color: '#627597',
+        crop: 'fit',
+        width: 432,
+        overlay: {
+          font_family: 'Source Sans Pro',
+          font_size: 34,
+          font_weight: 'semibold',
+          text: `@${user.login}`
+        },
+      },
+      {
+        flags: 'layer_apply',
+        gravity: 'north_west',
+        y: 'h + 10'
+      },
+      {
+        color: '#24292F',
+        crop: 'fit',
+        width: 432,
+        overlay: {
+          font_family: 'Source Sans Pro',
+          font_size: 36,
+          font_weight: 'regular',
+          text: user.bio,
+          crop: 'fit'
+        },
+      },
+      {
+        flags: 'layer_apply',
+        gravity: 'north_west',
+        y: 'h + 18'
+      },
+      {
+        color: '#24292F',
+        crop: 'fit',
+        width: 432,
+        overlay: {
+          font_family: 'Source Sans Pro',
+          font_size: 28,
+          font_weight: 'semibold',
+          text: `${user.followers} Followers    ${user.public_repos} Public Repos`,
+          crop: 'fit'
+        },
+      },
+      {
+        flags: 'layer_apply',
+        gravity: 'north_west',
+        y: 'h + 24'
+      },
+      {
+        flags: 'layer_apply',
+        gravity: 'north_west',
+        x: 506,
+        y: 80
       }
     ]
   });
