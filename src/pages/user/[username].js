@@ -13,7 +13,12 @@ import images from '@data/images';
 import styles from '@styles/User.module.scss'
 
 export default function User({ user, ogImageUrl }) {
-
+  function handleOnTweet(event) {
+    event.preventDefault();
+    const url = `${window.location.origin}${window.location.pathname}`;
+    const message = `Check out ${user.login}'s GitHub profile! ${url}`
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`, 'share-twitter', 'width=550, height=235');
+  }
   return (
     <Layout>
       <Head>
@@ -58,6 +63,10 @@ export default function User({ user, ogImageUrl }) {
         <h2 className={styles.header}>Share This Profile</h2>
 
         <img width="506" height="253" src={ogImageUrl} style={{ border: 'solid 2px blueviolet' }} alt="Social Card Preview" />
+
+        <p>
+          <Button onClick={handleOnTweet}>Share on Twitter</Button>
+        </p>
 
         <h2 className={styles.header}>Try Another Profile</h2>
 
