@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { v2 as cloudinary } from 'cloudinary';
 
 import Layout from '@components/Layout';
 import Container from '@components/Container';
@@ -11,7 +12,7 @@ import images from '@data/images';
 
 import styles from '@styles/User.module.scss'
 
-export default function User({ user }) {
+export default function User({ user, ogImageUrl }) {
 
   return (
     <Layout>
@@ -46,6 +47,10 @@ export default function User({ user }) {
           </div>
         </div>
 
+        <h2 className={styles.header}>Share This Profile</h2>
+
+        <img width="506" height="253" src={ogImageUrl} style={{ border: 'solid 2px blueviolet' }} alt="Social Card Preview" />
+
         <h2 className={styles.header}>Try Another Profile</h2>
 
         <p>
@@ -63,9 +68,26 @@ export default function User({ user }) {
 
 export async function getServerSideProps({ params }) {
   const user = await fetch(`https://api.github.com/users/${params.username}`).then(r => r.json());
+
+  cloudinary.config({
+    cloud_name: 'colbydemo'
+  });
+
+  const cloudinaryUrl = cloudinary.url('github-social-share-card-background_xfp2m8', {
+    width: 1012,
+    height: 506,
+    transformation: [
+      {
+        fetch_format: 'auto',
+        quality: 'auto'
+      }
+    ]
+  });
+
   return {
     props: {
-      user
+      user,
+      ogImageUrl: cloudinaryUrl
     }
   }
 }
