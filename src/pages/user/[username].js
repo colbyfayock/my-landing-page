@@ -87,7 +87,7 @@ export async function getServerSideProps({ params }) {
   const user = await fetch(`https://api.github.com/users/${params.username}`).then(r => r.json());
 
   cloudinary.config({
-    cloud_name: 'colbydemo'
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME
   });
 
   const cloudinaryUrl = cloudinary.url('github-social-share-card-background_xfp2m8', {
