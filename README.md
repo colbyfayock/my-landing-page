@@ -1,9 +1,15 @@
-# Demo GitHub Profile Starter
+# Dynamic Social Media Cards for Landing Pages in Next.js with Cloudinary
 
-## ⚡️ Quick Start
+Demo for tutorial [How to Generate Personalized Social Media Cards for Landing Pages with Next.js & Cloudinary](https://www.youtube.com/watch?v=WYTjd3yl5-g)
 
-```bash
-yarn create next-app -e https://github.com/colbyfayock/demo-github-profile-starter
-# or
-npx create-next-app -e https://github.com/colbyfayock/demo-github-profile-starter
-```
+📝 Article: https://spacejelly.dev/posts/how-to-generate-personalized-social-media-cards-for-landing-pages-with-next-js-cloudinary/
+
+📺 YouTube: https://www.youtube.com/watch?v=WYTjd3yl5-g
+
+## More tutorials and walkthroughs
+
+🐦 [Follow me on Twitter](https://twitter.com/colbyfayock)
+
+📺 [Subscribe on YouTube](https://www.youtube.com/colbyfayock)
+
+✉️ [Sign Up for My Newsletter](https://colbyfayock.com/newsletter)
